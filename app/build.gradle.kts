@@ -60,6 +60,10 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    //DI
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
+
 
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
