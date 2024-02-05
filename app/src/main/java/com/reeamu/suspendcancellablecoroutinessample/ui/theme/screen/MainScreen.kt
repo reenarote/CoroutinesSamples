@@ -9,11 +9,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.reeamu.suspendcancellablecoroutinessample.MainViewModel
 import com.reeamu.suspendcancellablecoroutinessample.events.CallbackEvents
-import com.reeamu.suspendcancellablecoroutinessample.state.CallbackState
-import kotlinx.coroutines.flow.collect
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

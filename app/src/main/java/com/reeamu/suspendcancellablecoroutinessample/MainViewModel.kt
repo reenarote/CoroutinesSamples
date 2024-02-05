@@ -1,8 +1,5 @@
 package com.reeamu.suspendcancellablecoroutinessample
 
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.reeamu.suspendcancellablecoroutinessample.connectivity.NetworkStatus
@@ -12,25 +9,15 @@ import com.reeamu.suspendcancellablecoroutinessample.data.UserCallback
 import com.reeamu.suspendcancellablecoroutinessample.data.dto.User
 import com.reeamu.suspendcancellablecoroutinessample.events.CallbackEvents
 import com.reeamu.suspendcancellablecoroutinessample.state.CallbackState
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlinx.coroutines.withContext
 import kotlin.coroutines.resume
 
 class MainViewModel(
