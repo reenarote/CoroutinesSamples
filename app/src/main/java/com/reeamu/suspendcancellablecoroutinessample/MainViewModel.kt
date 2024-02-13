@@ -30,7 +30,7 @@ class MainViewModel(
     val networkState = networkStatusProvider.networkStatus().stateIn(
         initialValue = NetworkStatus.Unknown,
         scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(5000)
+        started = SharingStarted.WhileSubscribed()
     )
 
 

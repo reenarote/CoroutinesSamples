@@ -13,7 +13,8 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flowOn
 
 class NetworkStatusProviderImpl(
-    private val connectivityManager: ConnectivityManager
+    private val connectivityManager: ConnectivityManager,
+    private val networkRequest: NetworkRequest
 ) : NetworkStatusProvider {
     override fun networkStatus(): Flow<NetworkStatus> = callbackFlow {
         val connectivityCallback = object : NetworkCallback() {
@@ -35,13 +36,7 @@ class NetworkStatusProviderImpl(
 
         }
 
-        val request =
-            NetworkRequest.Builder().addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
-                .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
-                .build()
-
-        connectivityManager.registerNetworkCallback(request, connectivityCallback)
+        connectivityManager.registerNetworkCallback(networkRequest, connectivityCallback)
         awaitClose {
             connectivityManager.unregisterNetworkCallback(connectivityCallback)
         }
